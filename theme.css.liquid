@@ -1,0 +1,53 @@
+/*
+Error: Undefined operation: "{{ settings.type_header_base_size }} times 1px".
+        on line 481 of ./tmp/tmpscss20210329-10572-fc9loa
+
+476: 
+477: $font-stack-body: unquote("{{ base_font.family }}"), unquote("{{ base_font.fallback_families }}");
+478: $font-style-body: unquote("{{ base_font.style }}");
+479: $font-weight-body: unquote("{{ base_font.weight }}");
+480: 
+481: $font-size-header: unquote("{{ settings.type_header_base_size }}") * 1px;
+482: $font-bold-titles: unquote("{{ settings.type_bold_product_titles }}");
+483: 
+484: $font-size-base: unquote("{{ settings.type_base_size }}")px; // Henceforth known as 1em
+485: 
+486: $font-stack-cart-notification: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+Backtrace:
+./tmp/tmpscss20210329-10572-fc9loa:481
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/script/tree/operation.rb:88:in `rescue in _perform'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/script/tree/operation.rb:84:in `_perform'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/script/tree/node.rb:50:in `perform'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:36:in `visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/stack.rb:79:in `block in with_base'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/stack.rb:135:in `with_frame'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/stack.rb:79:in `with_base'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:52:in `map'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/base.rb:36:in `visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/root_node.rb:36:in `css_tree'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/exec/sass_scss.rb:387:in `run'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/exec/base.rb:50:in `parse'
+/mnt/c/Code/liquid-scss-compiler/lib/ruby-sass/lib/sass/exec/base.rb:18:in `parse!'
+./lib/ruby-sass/bin/scss:13:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined operation: \"{{ settings.type_header_base_size }} times 1px\".\A         on line 481 of ./tmp/tmpscss20210329-10572-fc9loa\A \A 476: \A 477: $font-stack-body: unquote(\"{{ base_font.family }}\"), unquote(\"{{ base_font.fallback_families }}\");\A 478: $font-style-body: unquote(\"{{ base_font.style }}\");\A 479: $font-weight-body: unquote(\"{{ base_font.weight }}\");\A 480: \A 481: $font-size-header: unquote(\"{{ settings.type_header_base_size }}\") * 1px;\A 482: $font-bold-titles: unquote(\"{{ settings.type_bold_product_titles }}\");\A 483: \A 484: $font-size-base: unquote(\"{{ settings.type_base_size }}\")px; // Henceforth known as 1em\A 485: \A 486: $font-stack-cart-notification: \"HelveticaNeue\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;"; }

@@ -1,0 +1,50 @@
+# Liquid SCSS Compiler
+# Version 0.0.1
+# This script takes 1 parameter (an scss file with liquid syntax)
+
+require 'tempfile'
+require 'fileutils'
+
+puts 'Starting Liquid SCSS Compiler v0.0.1'
+files = ARGV[0]
+input_file, output_file = [files.split(":")[0], files.split(":")[1]]
+puts "Converting file: #{input_file}"
+
+path_to_compiler = "./lib/ruby-sass/bin/scss"
+tmp_path = "./tmp"
+
+# Replace liquid syntax with something SCSS can parse
+temp_file = Tempfile.new('tmpscss')
+begin
+  File.open(input_file, 'r') do |file|
+    file.each_line do |temp_line|
+      line = temp_line
+      #line = line.gsub("{{", "/*lsc {{").gsub("}}", "}} lsc*/")
+
+      if line[0..1] == "{{"
+        line = line.gsub("{{", "/*lsc {{").gsub("}}", "}} lsc*/")
+      else
+        line = line.gsub("{{", "unquote(\"{{").gsub("}}", "}}\")")
+      end
+
+      if line.include?("comment")
+        line = line.gsub("{%- comment -%}", "/*lsc {%- comment -%}").gsub("{%- endcomment -%}", "{%- endcomment -%} lsc*/")
+      else
+        line = line.gsub("{%", "/*lsc {%").gsub("%}", "%} lsc*/")
+      end
+      temp_file.puts line
+    end
+  end
+  temp_file.close
+  FileUtils.mv(temp_file.path, tmp_path)
+
+  puts "#{temp_file.path}:#{output_file}"
+
+  # Pass to SCSS compiler
+  system "ruby #{path_to_compiler} -C .#{temp_file.path}:#{output_file}"
+ensure
+  temp_file.close
+  temp_file.unlink
+end
+
+puts "Output file to: #{Dir.pwd}/#{output_file}"
